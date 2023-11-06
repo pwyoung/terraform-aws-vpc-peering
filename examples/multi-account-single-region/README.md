@@ -1,10 +1,11 @@
-# Cross Account Multi Region VPC Peering
+# Cross Account Single Region VPC Peering
 
-This example creates a peering connection between VPCs in different regions which are also located in different AWS accounts.
+This example creates a peering connection between VPCs in a single region which are located in different AWS accounts.
+See [provider.tf](provider.tf) for details.
 
 ## Sample Code
 
-```
+```hcl
 module "multi_account_single_region" {
   source = "../../"
 

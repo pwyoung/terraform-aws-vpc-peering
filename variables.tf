@@ -28,32 +28,8 @@ variable "peer_dns_resolution" {
   default     = false
 }
 
-variable "peer_link_to_peer_classic" {
-  description = "Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC Peering Connection"
-  type        = bool
-  default     = false
-}
-
-variable "peer_link_to_local_classic" {
-  description = "Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC Peering Connection"
-  type        = bool
-  default     = false
-}
-
 variable "this_dns_resolution" {
   description = "Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a this VPC"
-  type        = bool
-  default     = false
-}
-
-variable "this_link_to_peer_classic" {
-  description = "Indicates whether a local ClassicLink connection can communicate with the this VPC over the VPC Peering Connection"
-  type        = bool
-  default     = false
-}
-
-variable "this_link_to_local_classic" {
-  description = "Indicates whether a local VPC can communicate with a ClassicLink connection in the this VPC over the VPC Peering Connection"
   type        = bool
   default     = false
 }
@@ -64,10 +40,22 @@ variable "from_this" {
   default     = true
 }
 
+variable "from_this_associated" {
+  description = "If traffic for associated CIDRs TO peer VPC (from this) should be allowed"
+  type        = bool
+  default     = false
+}
+
 variable "from_peer" {
-  description = "If traffic FROM peer vpc (to this) should be allowed"
+  description = "If traffic FROM the peer VPC (to this) should be allowed"
   type        = bool
   default     = true
+}
+
+variable "from_peer_associated" {
+  description = "If traffic FROM associated CIDRs of the peer VPC (to this) should be allowed"
+  type        = bool
+  default     = false
 }
 
 variable "peer_subnets_ids" {
